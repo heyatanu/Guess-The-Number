@@ -1,0 +1,173 @@
+<!DOCTYPE html> 
+<html> 
+  <head>
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="image/icon.ico">
+    <title>The Guess Game</title>
+
+  </head>
+<body onload="easyfun(),openCity(event, 'London'),color()"> 
+  <div class="icon-bar">
+    <a href="facebook.com/atanu.dutta.735" class="facebook"><i class="fa fa-facebook"></i></a> 
+    <a href="https://www.instagram.com/hey_atanu/?hl=en" class="twitter"><i class="fa fa-instagram"></i></a> 
+    <a href="https://github.com/heyatanu" class="google"><i class="fa fa-github"></i></a> 
+    <a onclick="alert('Need To Contact\nCall Us:-00000000');" class="linkedin"><i class="fa fa-phone"></i></a>
+    <a onclick="alert('Need To Contact\nMail Us:-***@gmail.com');"class="youtube"><i class="fa fa-envelope"></i></a> 
+  </div>
+
+  <div class="content">
+
+    <div class="mainheading"><h1 id="creator-head">Guess The Number<span id="creator">By Atanu Dutta</span></h1></div>
+    <div class="main">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-12">
+              <div class="active-pink-3 active-pink-4 submit">
+                <input class="form-control" id="myText" type="number" placeholder="Try Any Number" required > <!--INPUT BOX-->
+              </div>
+              <div class="buttons">
+                <button type="button"class="btn btn-danger btn-lg btn-block" id="but" onclick="openCity(event, 'London'),myFunction(), mynew()">Try This Numbar</button> <!--SUBMIT BUTTON-->
+                <button id="easy"class="btn btn-primary btn-lg btn-block" onclick="openCity(event, 'London'),easyfun(),color()">Easy</button><!--LABLE EASY BUTTON-->
+                <button id="medium" class="btn btn-success btn-lg btn-block"onclick="openCity(event, 'London'),medfun(),color()">Medium</button><!--LABLE MEDIUM BUTTON-->
+                <button id="hard"class="btn btn-danger btn-lg btn-block" onclick="openCity(event, 'London'),hardfun(),color()">Hard</button><!--LABLE HARD BUTTON-->
+                <button id="reset" class="btn btn-dark btn-lg btn-block"onclick="reset()">Reset</button><!--RESET BUTTON-->
+                <button id="ts" class="btn btn-warning btn-lg btn-block"onclick="openCity(event, 'mumbai'),total(),mynew()">Total Game Status</button><!--TOTAL SCORE BUTTON-->
+                <button id="arr"class="btn btn-info btn-lg btn-block" onclick="openCity(event, 'wb'),rules(),mynew()">Rules</button><!--CHECK BUTTON TO SHOW THE NO OF GUESSES ARRAY -->
+                <button id="hint" class="btn btn-secondary btn-lg btn-block"onclick="openCity(event, 'Tokyo'),hintt()">Hint</button><!--HINT BUTTON -->
+                
+              </div>
+            </div>
+
+
+
+
+
+            <div class="col-lg-6 col-md-6 col-12">
+                <div class="res-tabs">
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8 col-8">
+                          <h2>Display</h2>
+                          <p>Want The Music??  <button type="button" class="btn btn-success btn-sm"onclick="disableMute(),disableMute2()">Turn On</button>
+                            </p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4 img">
+                          <div id="imgdiv">
+                            <img src="image/start.gif"id="myimg" style="width: 100%; height: auto;" alt="" srcset="">
+                          </div>
+                        </div>
+                    </div>
+                </div>
+              
+  
+           
+    
+                  <div class="tab">
+                    <button class="tablinks"id="tb1" onclick="openCity(event, 'London'),mynew(),color()">Data</button>
+                    <button class="tablinks"id="tb2" onclick="openCity(event, 'Paris'),mynew()">Last Game Data</button>
+                    <button class="tablinks" id="tb3"onclick="openCity(event, 'Tokyo'),hintt(),mynew()">Hint</button>
+                    <button class="tablinks" id="tb4"onclick="openCity(event, 'mumbai'),total(),arrr(),mynew()"> Game Status</button>
+                    <button class="tablinks" id="tb5"onclick="openCity(event, 'wb'),mynew(),rules()">Rules</button>
+
+                  </div>
+    
+                  <div id="London" class="tabcontent">
+                    <h5>This Game Data</h5>
+                    <p id="demo" style="font-size: 30px;font-weight: 500;"> <span id="dp"></span></p> 
+                    <p id="count"style="font-size: 18px;font-weight: 500;">Total number guess:- <span id="gcount">0</span> (Hint included)<br> Total hint use <span id="hinttime">0</span> times. </p><!--TOTAL NUMBER OF GUESS PARAGRAPH-->
+    
+                  </div>
+    
+                  <div id="Paris" class="tabcontent">
+                    <h3>Last Game data</h3>
+                    <p>Last Game Data Is Show If You Play at least one game .</p> 
+                        <!--PRINTING THE SCORE OR LAST 5 GAME START HERE -->
+                        <p id="lastgame"></p>
+                        <p id="1stlastgame"></p>
+                        <p id="2ndlastgame"></p>
+                        <p id="3rdlastgame"></p>
+                        <p id="4thlastgame"></p>
+                        <!--PRINTING THE SCORE OR LAST 5 GAME END HERE -->
+                  </div>
+    
+                  <div id="Tokyo" class="tabcontent">
+                    <h3>Hints</h3>
+                    <p id="hinttxt2">at this place hint will appeared</p>
+                  </div>
+                  <div id="mumbai" class="tabcontent">
+                    <h3>Total Game Status</h3>
+                    <p>player1 total attems or guess:- <span id="pl1">0</span> <br>
+                      player2 total attems or guess:- <span id="pl2">0</span> <br>
+                      player1 play total:- <span id="pl1_c">0</span> times<br>
+                      player2 play total:- <span id="pl2_c">0</span> times<br>
+                     </p>
+                     <p id="wintxt"></p>
+                     <p>The odd position is for player 1 and even position is for player 2<br>No of Guess Per game in order is:-  <span id="arrtxt"></span> </p>
+                  </div>
+                  <div id="wb" class="tabcontent">
+                    <h3>Rules & Regulations </h3>
+                    <p>
+                      
+                      
+                    &#10146;the Easy lable mean the system choose a number between 1-50<br>
+                    &#10146;the medium lable mean the system choose a number between 1-150<br>
+                    &#10146;the hard lable mean the system choose a number between 1-1000<br>
+                    &#10146; Your work to just guess the number<br>
+                    &#10146;follow the on screen instruction <br>&#10146;HAVE FUN........!!!
+                  </p>
+                    
+                  </div>
+          
+                  
+                </div>
+            </div>
+          </div>
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <div  style="text-align: center;"><p>the game default select easy lable for you , you can change the lable(easy/medium/hard) at any time<br>
+      Note that useing the hint increase the number of guess by +2
+    <br><i class="fa-1x fa fa-music" id="music_icon"aria-hidden="true"></i> 
+    <i class="fa-1x fa fa-volume-up" id="icon" aria-hidden="true"></i> make sure that the game sound is default on 
+    <button type="button" class="btn btn-secondary btn-sm"onclick="enableMute(),enableMute2()">Turn Off</button>
+     <br>for best read the rules.<br>©2020-2021 By Atanu Dutta Thank you from the creator.....Enjoy.....!
+     
+     </p></div>
+     
+  </div>
+</body> 
+<script>
+  function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+
+  
+  </script>
+<script src="game.js"></script> 
+
+</html> 
